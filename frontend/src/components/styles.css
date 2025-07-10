@@ -1,0 +1,405 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap");
+
+/* General Body Styles */
+.body {
+    min-height: calc(100vh - 140px);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Floating Particles Animation */
+.body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 119, 198, 0.4), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(120, 219, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 15s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
+/* Home Page Styles */
+.subtitle,
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.subtitle h2 {
+    font-size: 28px;
+    font-family: "Noto Sans JP", sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease-out;
+}
+
+.title h1 {
+    font-size: 80px;
+    font-family: "Orbitron", monospace;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientText 3s ease-in-out infinite, fadeInUp 1.2s ease-out;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    margin: 0;
+}
+
+@keyframes gradientText {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    padding: 16px 32px;
+    font-size: 20px;
+    font-family: "Orbitron", monospace;
+    font-weight: 700;
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(78, 205, 196, 0.2));
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.links a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.links a:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.4), rgba(78, 205, 196, 0.4));
+}
+
+.links a:hover::before {
+    left: 100%;
+}
+
+/* Voting Page Styles */
+.vtitle,
+.vsubtitle {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.vtitle h1 {
+    font-size: 48px;
+    font-family: "Orbitron", monospace;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.vsubtitle h2 {
+    font-size: 24px;
+    font-family: "Noto Sans JP", sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.image1,
+.image2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-width: 250px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.image1::before,
+.image2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.image1:hover,
+.image2:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.image1:hover::before,
+.image2:hover::before {
+    opacity: 1;
+}
+
+.image1 img,
+.image2 img {
+    border-radius: 15px;
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.image1:hover img,
+.image2:hover img {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.char-name {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: "Orbitron", monospace;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.or {
+    font-size: 36px;
+    font-weight: 900;
+    font-family: "Orbitron", monospace;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Leaderboard Styles */
+.ltitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ltitle h1 {
+    font-size: 48px;
+    font-family: "Orbitron", monospace;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.leaderboard-list {
+    max-height: 60vh;
+    overflow-y: auto;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.leaderboard-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.leaderboard-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.leaderboard-list::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 10px;
+}
+
+.leaderboard-list h3 {
+    padding: 15px 20px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border-left: 4px solid #4ecdc4;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 18px;
+    color: #fff;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+.leaderboard-list h3:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px);
+    border-left-color: #ff6b6b;
+}
+
+.leaderboard-list h3:nth-child(1) {
+    border-left-color: #ffd700;
+}
+
+.leaderboard-list h3:nth-child(2) {
+    border-left-color: #c0c0c0;
+}
+
+.leaderboard-list h3:nth-child(3) {
+    border-left-color: #cd7f32;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title h1 {
+        font-size: 60px;
+    }
+
+    .images {
+        gap: 30px;
+    }
+
+    .image1,
+    .image2 {
+        min-width: 200px;
+    }
+
+    .image1 img,
+    .image2 img {
+        width: 160px;
+        height: 240px;
+    }
+
+    .links {
+        gap: 20px;
+    }
+
+    .links a {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 40px;
+    }
+
+    .subtitle h2 {
+        font-size: 20px;
+    }
+
+    .images {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .or {
+        font-size: 24px;
+        transform: rotate(90deg);
+    }
+
+    .leaderboard-list {
+        width: 95%;
+        padding: 15px;
+    }
+}
