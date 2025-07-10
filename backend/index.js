@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 app.use('/images', express.static(path.join(__dirname, '../images')));
 
 
-mongoose.connect(Mongouri)
+mongoose.connect(MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("Mongo connection error:", err));
 
