@@ -1,5 +1,4 @@
 import express from 'express';
-import { MONGO_URI } from './config.js';
 import mongoose from 'mongoose';
 import Character from './models/Character.js'
 import cors from 'cors'; // add this at the top
