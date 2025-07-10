@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './styles.css';
 
+const API = import.meta.env.VITE_API_BASE_URL;
+
 export default function Voting() {
   const [characters, setCharacters] = useState([]);
 
   const fetchCharacters = async () => {
-    const res = await axios.get("http://localhost:5000/vote");
+    const res = await axios.get(`${API}/vote`);
     setCharacters(res.data);
   };
 
   const vote = async (id) => {
-    await axios.put("http://localhost:5000/vote", { id });
+    await axios.put(`${API}/vote`, { id });
     fetchCharacters(); // Load next 2 characters
   };
 
