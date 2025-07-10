@@ -66,4 +66,5 @@ app.get("/leaderboard", async (req, res) => {
   
 
 
-app.listen(Port);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
