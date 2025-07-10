@@ -6,7 +6,7 @@ function Leaderboard() {
   const [leaders, setLeaders] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/leaderboard").then((res) => {
+    axios.get(`${API}/leaderboard`).then((res) => {
       setLeaders(res.data);
     });
   }, []);
