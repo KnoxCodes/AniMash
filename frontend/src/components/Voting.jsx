@@ -29,7 +29,7 @@ export default function Voting() {
         {characters.length === 2 && (
           <>
             <div className="image1" onClick={() => vote(characters[0]._id)}>
-              <img src={`${API}${characters[0].image}`} alt={characters[0].name} width={200} height={300} />
+              <img src={characters[0].image} alt={characters[0].name} width={200} height={300} />
               <div className="char-name">{characters[0].name}</div>
             </div>
             <div className="or">OR</div>
